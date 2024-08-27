@@ -58,7 +58,9 @@ else:
             st.markdown(prompt)
 
         # Prepare the context for the chatbot by including relevant policy document text.
-        context = df
+        context = df.to_string
+
+        st.write(context)
         
 
         # Combine the context with the user's prompt for the OpenAI API.
