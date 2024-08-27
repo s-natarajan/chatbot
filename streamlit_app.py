@@ -7,8 +7,8 @@ from st_files_connection import FilesConnection
 # Specify input format is a csv and to cache the result for 600 seconds.
 conn = st.connection('s3', type=FilesConnection)
 st.write("conn obtained")
-df1 = conn.read("fbc-hackathon-test/policy_doc_1.txt", input_format="text", ttl=600)
-st.write(df1)
+df = conn.read("fbc-hackathon-test/policy_doc_1.txt", input_format="text", ttl=600)
+#st.write(df)
 # Print results.
 #for row in df.itertuples():
     #st.write(f"{row.Owner} has a :{row.Pet}:")
@@ -58,7 +58,7 @@ else:
             st.markdown(prompt)
 
         # Prepare the context for the chatbot by including relevant policy document text.
-        context = df.to_string()
+        context = df
 
         st.write(context)
         
