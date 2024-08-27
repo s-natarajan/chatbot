@@ -7,7 +7,7 @@ from st_files_connection import FilesConnection
 # Specify input format is a csv and to cache the result for 600 seconds.
 conn = st.connection('s3', type=FilesConnection)
 st.write("conn obtained")
-df = conn.read("fbc-hackathon-test/policy_doc_1.txt", input_format="text", ttl=600)
+#df = conn.read("fbc-hackathon-test/policy_doc_1.txt", input_format="text", ttl=600)
 #st.write(df)
 # Print results.
 #for row in df.itertuples():
@@ -58,9 +58,13 @@ else:
             st.markdown(prompt)
 
         # Prepare the context for the chatbot by including relevant policy document text.
-        context = df
+         context = ""
+        if "franchise" in prompt.lower():
+            context = conn.read("fbc-hackathon-test/policy_doc_1.txt", input_format="text", ttl=600)
+        elif "employee" in prompt.lower() or "conduct" in prompt.lower():
+            context = df = conn.read("fbc-hackathon-test/policy_doc_2.txt", input_format="text", ttl=600)
 
-        st.write(context)
+        #st.write(context)
         
 
         # Combine the context with the user's prompt for the OpenAI API.
