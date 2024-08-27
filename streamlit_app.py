@@ -58,7 +58,7 @@ else:
             st.markdown(prompt)
 
         # Prepare the context for the chatbot by including relevant policy document text.
-        context = df.to_string
+        context = df.to_string()
 
         st.write(context)
         
