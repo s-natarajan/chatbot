@@ -58,7 +58,7 @@ else:
             st.markdown(prompt)
 
         # Prepare the context for the chatbot by including relevant policy document text.
-         context = ""
+        context = ""
         if "franchise" in prompt.lower():
             context = conn.read("fbc-hackathon-test/policy_doc_1.txt", input_format="text", ttl=600)
         elif "employee" in prompt.lower() or "conduct" in prompt.lower():
