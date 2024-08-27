@@ -7,7 +7,7 @@ from st_files_connection import FilesConnection
 # Specify input format is a csv and to cache the result for 600 seconds.
 conn = st.connection('s3', type=FilesConnection)
 st.write("conn obtained")
-df1 = conn.read("fbc-hackathon-test/policy_doc_1.txt", input_format="txt", ttl=600)
+df1 = conn.read("fbc-hackathon-test/policy_doc_1.txt", input_format="text", ttl=600)
 st.write(df1)
 # Print results.
 #for row in df.itertuples():
